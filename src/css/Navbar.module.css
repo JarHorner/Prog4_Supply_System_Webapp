@@ -1,0 +1,58 @@
+.Nav{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    column-gap:15vw;
+    font-size:20px;
+    font-weight:bold;
+    height:10vh;
+    background-color: lightblue;
+  }
+  
+  .navLogo{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex:50%;
+  }
+  
+  .navMenu{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    column-gap:45px;
+    flex:70%;
+    padding-right:75px;
+  }
+  
+  .NavLink{
+    color:black;
+    -webkit-transition: 0.5s;
+    transition:0.5s;
+  }
+  
+  .NavLink:hover{
+    color:#D9534F;
+  }
+  
+  
+  .inputContainer > input[type="email"]{
+    border: 1px solid black;
+    border-width: 0px 0px 2px;
+    -webkit-transition: 0.5s;
+    transition:0.5s;
+  }
+  
+  .others{
+    text-align: center;
+  }
+  
+  .inputContainer > input[type="email"]:focus{
+    outline: 0;
+    border-color:#D9534F;
+  }
+  
+  .Profile{
+    font-size:2em;
+  }
