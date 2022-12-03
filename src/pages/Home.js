@@ -1,15 +1,24 @@
-
-
+import React, { useState, useEffect } from "react";
 import homeClasses from "../css/Home.module.css";
+import { SearchItemByName } from "./calls/ItemCalls";
 
 function Home() {
+    const [searchInput,setSearchInput] = useState();
+    
+    const handleChange = (e) =>{
+        SearchItemByName(e.target.value).then((data) => setSearchInput(data)); 
+    }
 
     return (
         <div className={homeClasses.homePage}>
             <h1>Home</h1>
             <input 
                 type="text"
-                placeholder="Enter name of item">
+                placeholder="Enter name of item"
+                onChange={handleChange}
+                value={searchInput}
+                >
+                    
             </input>
             <button className={homeClasses.enterButton}>Enter</button>
             <div className={homeClasses.itemsList}>
