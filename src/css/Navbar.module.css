@@ -1,10 +1,11 @@
+
 .Nav{
     display:flex;
     flex-direction:row;
     justify-content: center;
     align-items: center;
     column-gap:15vw;
-    font-size:20px;
+    font-size:22px;
     font-weight:bold;
     height:10vh;
     background-color: lightblue;
@@ -23,7 +24,6 @@
     align-items: center;
     column-gap:45px;
     flex:70%;
-    padding-right:75px;
   }
   
   .NavLink{
