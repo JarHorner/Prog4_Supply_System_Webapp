@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import navbarClasses from "./css/Navbar.module.css";
+
 
 import { ShowAllItems } from "./calls/ItemCalls"
-import HOME from "./pages/Home"
-import RESULT from "./pages/Result"
+
+import HOME from "./pages/Home";
+import RESULT from "./pages/Result";
+import ADD from "./pages/add";
 
 
 function App() {
@@ -19,34 +21,13 @@ function App() {
   })
 
   return (
-    <BrowserRouter className={navbarClasses.Navbar}>
-      <div className={navbarClasses.Nav}>
-        <div className={navbarClasses.navLogo}>
-          <Link
-            className={navbarClasses.NavLink}
-            to="/"
-            activestyle="true"
-          >
-            Home
-          </Link>
-        </div>
-
-        <div className={navbarClasses.navMenu}>
-          <Link
-            className={navbarClasses.NavLink}
-            to="/result"
-            activestyle="true"
-          >
-            Results
-          </Link>
-        </div>
-      </div>
-      <div>
+    <BrowserRouter>
           <Routes>
             <Route path="/" element={<HOME />} />
             <Route path="/result" element={<RESULT />} />
+            <Route path="/add" element={<ADD />} />
           </Routes>
-      </div>
+    
     </BrowserRouter>
   );
 }
