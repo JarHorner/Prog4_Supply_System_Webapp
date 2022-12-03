@@ -6,7 +6,6 @@ export function ShowAllItems() {
     return apiInstance
     .get(config.API.show_all_items)
     .then((response) => {
-
       return response.data;
     });
     
