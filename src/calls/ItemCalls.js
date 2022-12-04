@@ -1,22 +1,15 @@
-import apiInstance from "../api";
-import config from "../config";
+const axios = require("axios");
+const config = require("../config");
+
+const ADDRESS = "http://35.209.74.28:8080/api";
 
 
-export function ShowAllItems() {
-    return apiInstance
-    .get(config.API.show_all_items)
+function ShowAllItems() {
+    return axios
+    .get(ADDRESS + config.API.show_all_items)
     .then((response) => {
       return response.data;
     });
-    
 }
 
-export function SearchItemByName() {
-
-    
-}
-
-export function AddNewItem() {
-
-    
-}
+module.exports = ShowAllItems;

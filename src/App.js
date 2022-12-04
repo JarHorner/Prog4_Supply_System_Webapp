@@ -16,7 +16,6 @@ function App() {
   useEffect(() => {
     ShowAllItems().then((data) => {
       console.log(data);
-      setItems(data);
     })
   })
 
