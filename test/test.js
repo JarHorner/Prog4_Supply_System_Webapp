@@ -1,14 +1,23 @@
-const request = require("supertest")("http://35.209.74.28:8080/api");
 const expect = require("chai").expect;
-const ItemCalls = require("../src/calls/ItemCalls");
+const ShowAllItems = require("../src/calls/ItemCalls");
 
 describe("GET /items", function () {
-  it("returns all items, limited to 30 per page", async function () {
-    //const response = await request.get("/items");
-    const response = await ItemCalls();
 
-    expect(response.status).to.eql(200);
-    expect(response.body.data.length).to.eql(30);
+  it("returns all items using function", async function () {
+
+    await ShowAllItems().then((response) => {
+      expect(response.status).to.eql(200);
+      expect(response.data.length).to.eql(45);
+    });
+
+  });
+
+  it("does NOT return all items using function", async function () {
+
+    await ShowAllItems("http://35.209.74.28:8080/api/item").then((response) => {
+      expect(response.status).to.eql(404);
+    })
+
   });
 });
 

@@ -11,14 +11,6 @@ import ADD from "./pages/add";
 
 
 function App() {
-  const [items, setItems] = useState();
-
-  useEffect(() => {
-    ShowAllItems().then((data) => {
-      console.log(data);
-    })
-  })
-
   return (
     <BrowserRouter>
           <Routes>

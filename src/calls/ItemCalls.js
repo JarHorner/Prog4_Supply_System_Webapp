@@ -1,14 +1,16 @@
 const axios = require("axios");
-const config = require("../config");
 
-const ADDRESS = "http://35.209.74.28:8080/api";
+const ADDRESS = "http://35.209.74.28:8080/api/items";
 
 
-function ShowAllItems() {
+function ShowAllItems(address = ADDRESS) {
     return axios
-    .get(ADDRESS + config.API.show_all_items)
+    .get(address)
     .then((response) => {
-      return response.data;
+      return response;
+    })
+    .catch((error) => {
+      return error;
     });
 }
 

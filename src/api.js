@@ -7,5 +7,4 @@ const instance = () => {
     baseURL: "http://35.209.74.28:8080/api"
   });
 }
-
-module.export = instance;
+module.exports = instance;
