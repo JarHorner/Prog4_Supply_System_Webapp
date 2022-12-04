@@ -17,14 +17,13 @@ export function SearchItemByName() {
 }
 
 export function AddNewItem(name, id, price, quantity, supID) {
+  console.log('fired in call')
   return apiInstance.post(config.API.add_item,{
-    body:{
       name: name,
       stockQuantity: quantity, 
       price: price,
-      supplierID: supID,
+      supplierId: supID,
       id: id
-    }
   }).then((response) => {
     return response
   })

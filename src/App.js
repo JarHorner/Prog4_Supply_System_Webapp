@@ -18,7 +18,7 @@ function App() {
       console.log(data);
       setItems(data);
     })
-  })
+  }, [])
 
   return (
     <BrowserRouter>

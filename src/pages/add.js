@@ -97,7 +97,7 @@ function Add() {
             </div>
 
             <div id='submit' >
-            <div onClick={()=>{addItem()}} className=" bg-blue-700 text-white p-2 w-30 rounded-full drop-shadow-xl">Add Item </div>
+            <div onClick={()=>{ return addItem()}} className=" bg-blue-700 text-white p-2 w-30 rounded-full drop-shadow-xl">Add Item </div>
 
             </div>
 
