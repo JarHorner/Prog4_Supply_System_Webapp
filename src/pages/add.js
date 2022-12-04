@@ -31,14 +31,14 @@ function Add() {
         setSupplierID(e.target.value)
     }
    
-    function addItem() {
-        var response = AddNewItem(itemName, itemId, itemPrice, itemQuantity, supplierID)
+    async function addItem() {
+        console.log('fired')
+        var response = await AddNewItem(itemName, itemId, itemPrice, itemQuantity, supplierID)
         if (response.status !== 200 ){
             return <h1 color='red'>Something went wrong : {response.message}</h1>
           } else {
             return <h1 color='green'>Item Added Successfully</h1>
-          }
-        
+          }  
     }
 
 
@@ -97,10 +97,10 @@ function Add() {
             </div>
 
             <div id='submit' >
-            <button onClick={()=>{addItem()}} className=" bg-blue-700 text-white p-2 w-30 rounded-full drop-shadow-xl">Add Item </button>
+            <div onClick={()=>{addItem()}} className=" bg-blue-700 text-white p-2 w-30 rounded-full drop-shadow-xl">Add Item </div>
 
             </div>
-            {console.log(itemName)}
+
         </form>
         </div>
 
