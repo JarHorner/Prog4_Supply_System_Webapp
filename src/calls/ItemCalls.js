@@ -16,7 +16,17 @@ export function SearchItemByName() {
     
 }
 
-export function AddNewItem() {
-
+export function AddNewItem(name, id, price, quantity, supID) {
+  return apiInstance.post(config.API.add_item,{
+    body:{
+      name: name,
+      stockQuantity: quantity, 
+      price: price,
+      supplierID: supID,
+      id: id
+    }
+  }).then((response) => {
+    return response
+  })
     
 }
