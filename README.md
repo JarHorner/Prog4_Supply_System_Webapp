@@ -1,3 +1,6 @@
+## Project Description
+
+This project provides a clean UI for filtering through items, inspecting the details of any item, and add an item. This uses the API from [COMP3504_Assign2](https://github.com/JarHorner/COMP3504_Assign2).
 ## Available Scripts
 
 In the project directory, you can run:
