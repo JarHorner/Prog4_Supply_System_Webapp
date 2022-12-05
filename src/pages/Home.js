@@ -1,6 +1,7 @@
-
+import React, { useState, useEffect } from "react";
 import CONTENTVIEW from "./ContentView";
 import { useNavigate } from 'react-router-dom';
+import { ShowAllItems,SearchItemById } from "../calls/ItemCalls"
 
 const RESULTPAGEFINAL = "/result"
 const ADDPAGEPATH = "/add"
@@ -8,10 +9,34 @@ const ADDPAGEPATH = "/add"
 function Home() {
 
     const navigate = useNavigate();
-
+    const [items, setItems] = useState([]);
+    const [filteredItem,setFilteredItem] = useState([]); 
+   
     //Show all items
     //Search by name
     //Add by name
+    const handleChange = (e) =>{
+        //const filteredItem = (items.filter((item) => item.item_name.toLowerCase() === e.target.value.toLowerCase()) ); 
+        const itemCopy = items; 
+        const filteredItem = (itemCopy.filter((item) => item.item_name.toLowerCase().includes(e.target.value.toLowerCase())) );  
+        
+
+        if(filteredItem.length > 0 && e.target.value !== ""){
+            //SearchItemById(e.target.value).then((data) => setItems(data)); 
+            setFilteredItem(filteredItem)
+        }else{
+            ShowAllItems().then((response) => setFilteredItem(response.data));        
+        }
+        
+    }
+
+    useEffect(() => {
+        ShowAllItems().then((response) => {
+            setItems(response.data);
+            setFilteredItem(response.data); 
+          })       
+    } , [])
+
 
     return (
         <div id="bodyContent" className=" w-screen h-full flex flex-col">
@@ -21,7 +46,16 @@ function Home() {
 
             <div id="contentContainer" className="flex flex-col h-full">
                 <div className="flex p-5 ">
-                    <input className=" drop-shadow-xl p-2 w-full rounded-2xl" placeholder="Search by Name..." type="search"></input>
+                    <input 
+                        className=" drop-shadow-xl p-2 w-full rounded-2xl" 
+                        placeholder="Search by Name..." 
+                        type="search"
+                        onChange={handleChange}
+                        //onClick={setFiltered(true)}
+                        // value={searchInput}  
+                        >   
+
+                    </input>
                 </div>
                 <div className="mt-10">
                     <div className="pl-5  flex">
@@ -33,13 +67,13 @@ function Home() {
                         </div>
                     </div>
                     <div className="p-2 flex flex-wrap justify-center items-center  ">
-                        <CONTENTVIEW name="testItem" id="1" price="$5.00" page={RESULTPAGEFINAL} />
-                        <CONTENTVIEW name="testItem" id="1" price="$5.00" page={RESULTPAGEFINAL} />
-                        <CONTENTVIEW name="testItem" id="1" price="$5.00" page={RESULTPAGEFINAL} />
-                        <CONTENTVIEW name="testItem" id="1" price="$5.00" page={RESULTPAGEFINAL} />
-                        <CONTENTVIEW name="testItem" id="1" price="$5.00" page={RESULTPAGEFINAL} />
-                        <CONTENTVIEW name="testItem" id="1" price="$5.00" page={RESULTPAGEFINAL} />
-                        <CONTENTVIEW name="testItem" id="1" price="$5.00" page={RESULTPAGEFINAL} />
+                    {
+                            filteredItem.map(item =>
+    
+                                <CONTENTVIEW name={item.item_name} id={item.item_id} price={"$"+ item.item_price} page={RESULTPAGEFINAL}/>
+                            )       
+                      
+                }
                         
                     </div>
                 </div>
