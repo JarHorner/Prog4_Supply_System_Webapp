@@ -35,8 +35,8 @@ function Add() {
    
     async function addItem() {
         var response = await AddNewItem(itemName, itemId, itemPrice, itemQuantity, supplierID)
-        if (response.status !== 200 ){
-            setSuccess(<h1 color='red'>Something went wrong : {response.message}</h1>)
+        if (response.data.status == '' ){
+            setSuccess(<h1 color='red'>Something went wrong</h1>)
           } else {
             setSuccess(<h1 color='green'>Item Added Successfully</h1>)
             setItemName('')
