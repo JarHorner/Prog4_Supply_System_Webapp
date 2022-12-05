@@ -17,7 +17,6 @@ export function SearchItemByName() {
 }
 
 export function AddNewItem(name, id, price, quantity, supID) {
-  console.log('fired in call')
   return apiInstance.post(config.API.add_item,{
       name: name,
       stockQuantity: quantity, 
