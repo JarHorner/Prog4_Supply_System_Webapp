@@ -11,7 +11,6 @@ import ADD from "./pages/add";
 
 
 function App() {
-
   return (
     <BrowserRouter>
           <Routes>
