@@ -11,8 +11,15 @@ export function ShowAllItems() {
     
 }
 
-export function SearchItemByName() {
+export function SearchItemById(identifier) {
 
+  return apiInstance
+  .get(config.API.get_item+identifier,{
+  
+  })
+  .then((response) => {
+    return response.data
+  })
     
 }
 

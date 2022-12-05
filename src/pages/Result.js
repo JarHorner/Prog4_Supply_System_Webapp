@@ -1,11 +1,19 @@
 import { useNavigate } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { ShowAllItems,SearchItemById } from "../calls/ItemCalls"
 
 
 function Result() {
     const navigate = useNavigate();
-    //const id = parseInt(useLocation().state.itemId);  
+    const [items, setItems] = useState([]);
+    const id = parseInt(useLocation().state.itemId);  
 
+    useEffect(() => {
+        SearchItemById(id).then((data) => {
+            setItems(data[0]);
+          })  
+    } , [])
     
     return (
         <div id="bodyContent" className=" w-screen h-screen flex flex-col bg-neutral-100">
@@ -19,23 +27,23 @@ function Result() {
 
 
                 <div>
-                    ITEM ID: <span>Value</span>
+                    ITEM ID: <span>{items.item_id}</span>
                 </div>
 
                 <div>
-                    ITEM NAME: <span>Value</span>
+                    ITEM NAME: <span>{items.item_name}</span>
                 </div>
 
                 <div>
-                    ITEM QUANTITY: <span>Value</span>
+                    ITEM QUANTITY: <span>{items.item_quantity}</span>
                 </div>
 
                 <div>
-                    ITEM PRICE: <span>Value</span>
+                    ITEM PRICE: <span>{items.item_price}</span>
                 </div>
 
                 <div>
-                    ITEM'S SUPPLIER ID: <span>Value</span>
+                    ITEM'S SUPPLIER ID: <span>{items.item_supplier_id}</span>
                 </div>
             </div>
         </div>
