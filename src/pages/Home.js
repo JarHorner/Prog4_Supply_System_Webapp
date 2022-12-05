@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CONTENTVIEW from "./ContentView";
 import { useNavigate } from 'react-router-dom';
-import { ShowAllItems,SearchItemById } from "../calls/ItemCalls"
+import { ShowAllItems } from "../calls/ItemCalls"
 
 const RESULTPAGEFINAL = "/result"
 const ADDPAGEPATH = "/add"

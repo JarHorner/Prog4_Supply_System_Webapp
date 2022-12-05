@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { ShowAllItems,SearchItemById } from "../calls/ItemCalls"
+import { ShowAllItems, SearchItemByName } from "../calls/ItemCalls"
 
 
 function Result() {
@@ -10,7 +10,7 @@ function Result() {
     const id = parseInt(useLocation().state.itemId);  
 
     useEffect(() => {
-        SearchItemById(id).then((data) => {
+        SearchItemByName(id).then((data) => {
             setItems(data.data[0]);
           })  
     } , [])
