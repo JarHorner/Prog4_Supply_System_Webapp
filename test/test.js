@@ -1,10 +1,16 @@
 const expect = require("chai").expect;
-const { ShowAllItems, SearchItemByName, AddNewItem, RemoveItem } = require("../src/calls/ItemCalls");
+const { ShowAllItems, SearchItemByName, AddNewItem, RemoveItem, CountItems } = require("../src/calls/ItemCalls");
 
 describe("1. GET /items", function () {
 
   it("returns all items", async function () {
-    const itemLen = 51;
+    var itemLen;
+
+    await CountItems()
+      .then((response) => {
+        itemLen = response.data[0].numItems;
+      })
+
     await ShowAllItems()
       .then((response) => {
         expect(response.status).to.eql(200);
