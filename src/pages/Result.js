@@ -11,7 +11,7 @@ function Result() {
 
     useEffect(() => {
         SearchItemById(id).then((data) => {
-            setItems(data[0]);
+            setItems(data.data[0]);
           })  
     } , [])
     

@@ -6,7 +6,7 @@ export function ShowAllItems() {
     return apiInstance
     .get(config.API.show_all_items)
     .then((response) => {
-      return response.data;
+      return response;
     });
     
 }
@@ -18,7 +18,7 @@ export function SearchItemById(identifier) {
   
   })
   .then((response) => {
-    return response.data
+    return response
   })
     
 }
