@@ -4,7 +4,7 @@ const config = {
     show_all_items:
       "/items",
     get_item:
-      "/items",
+      "/items/",
     add_item:
       "/items",
   },
