@@ -8,7 +8,7 @@ This project provides a clean UI for filtering through items, inspecting the det
 
 2. run `npm run build` to builds a production version of the application.
 
-3. run `npx serve -s build` to server the production to a network.
+3. run `npx serve -s build` to deploy the application to a static server.
 
 4. run `npm start` to start the application. This will be on [http://localhost:3000](http://localhost:3000)
 
